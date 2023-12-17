@@ -1,0 +1,58 @@
+//Copyright Matei-Cristian Balan 312CAb 2023-2024
+
+Am inceput rezolvarea problemei prin conceperea unui plan in care
+sa surprind principalele sarcini pe care tema le propune. Astfel, am reusit
+sa disting urmatoarele functii care ma vor ajuta:
+
+1. Functia de alocare a memoriei pentru vectorul de pointeri de matrice,
+pentru vectorul de dimensiuni ale matricelor, pentru o matrice (sub forma
+unui struct).
+Am ales stocarea matricelor intr-un struct datorita libertatii
+de notare, cat si pentru reducerea greselilor de scriere ("*" puse gresit).
+Am facut pentru fiecare alocare cate o verificare pentru corectitudine (a fi
+pointerul diferit de NULL).
+
+2. Functia de salvare in memorie a unei noi matrice.
+Aceasta presupune incrementarea unui indice ce pastreaza numarul de matrice 
+retinute (-1, pentru a-l putea folosi usor si ca indice al ultimei matrice
+din memorie).
+
+3. Functia de afisare a dimensiunilor unei matrice date.
+
+4. Functia de afisare a elementelor unei matrice date.
+
+5. Functia de redimensionare a unei matrice din memorie, dupa coloane si
+linii date. 
+Am folosit doi vectori in care sa pastraz indicii liniilor si
+coloanelor pe care apoi sa le parcurg, si ale caror elemente sa le pastrez
+intr-o matrice auxiliara, care va inlocui matricea initiala.
+
+6. Functia de inmultire a doua matrice.
+Am folosit algoritmul clasic de inmultire, doar am fost atent la
+indicii matricelor din structurile alocate dinamic, si la modulul
+rezultatelor operatiilor de inmultire si adunare.
+
+7. Functia de sortare a vectorului de matrice dupa suma elementelor
+acestora.
+Am ales sa folosesc insertion sort pentru sortarea crescatoare a matricelor
+in vector. Am pastrat sumele (in modulo) a fiecarei matrice intr-un vector
+pe care l-am sortat. La fiecare schimbare a ordinii in vectorul de sume,
+am facut schimbarea corespunzatoare si in vectorul de matrice, cat si in cel
+de dimensiuni ale matricelor.
+
+8. Functia de transpunere a matricelor.
+Pentru aceasta operatie am folosit o matrice auxiliara pentru care am permutat
+numarul de linii cu cel al coloanelor. Apoi am pastrat fiecare element
+al matricei initiale, dar cu indici inversati, in cea secundara.
+
+9. Functia de stergere a unei matrice din memorie.
+Am inceput prin a-mi elibera in vectorul de matrice memoria 
+matricei ce corespunde indicelui primit. Dupa, doar am mutat adresa fiecarei
+matrice cu o pozitie in urma. Am incheiat prin a reduce indicele "contor" 
+cu 1.
+
+10. Functia de eliberare a tuturor resurselor/oprire a programului.
+Am pus ultimele free-uri necesare pentru vectorul de matrice si 
+vectorul de dimensiuni ale matricelor si am inchis bucla infinita de comenzi
+din functia task_assignment cu functia exit.
+*eliberari am facut si local in fiecare functie unde a fost necesar
